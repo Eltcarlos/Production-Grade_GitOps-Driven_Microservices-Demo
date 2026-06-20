@@ -11,7 +11,7 @@ module "vpc" {
   enable_nat_gateway = true
   enable_vpn_gateway = false
   single_nat_gateway = true
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = true # every ec2 launched in a public subnet subnet automatically gets a public ip
 
   tags = {
     Terraform = "true"

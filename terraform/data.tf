@@ -2,7 +2,7 @@ data "http" "my_ip" {
   url = "https://checkip.amazonaws.com"
 }
 
-data "aws_ami" "ubuntu" {
+data "aws_ami" "ubuntu" { # data "<data_source_type>" "<data_source_name>"
   most_recent = true
 
   filter {
