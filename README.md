@@ -97,17 +97,17 @@ They are built using **Microservices Architecture**.
 
 | **Service** | **Language** | **Description** |
 | --- | --- | --- |
-| [frontend](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/frontend) | Go | Exposes an HTTP server to serve the website. Does not require signup/login and generates session IDs for all users automatically. |
-| [cartservice](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/cartservice) | C# | Stores the items in the user's shopping cart in Redis and retrieves it. |
-| [productcatalogservice](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/productcatalogservice) | Go | Provides the list of products from a JSON file and ability to search products and get individual products. |
-| [currencyservice](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/currencyservice) | Node.js | Converts one money amount to another currency. Uses real values fetched from European Central Bank. It's the highest QPS service. |
-| [paymentservice](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/paymentservice) | Node.js | Charges the given credit card info (mock) with the given amount and returns a transaction ID. |
-| [shippingservice](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/shippingservice) | Go | Gives shipping cost estimates based on the shopping cart. Ships items to the given address (mock) |
-| [emailservice](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/emailservice) | Python | Sends users an order confirmation email (mock). |
-| [checkoutservice](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/checkoutservice) | Go | Retrieves user cart, prepares order and orchestrates the payment, shipping and the email notification. |
-| [recommendationservice](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/recommendationservice) | Python | Recommends other products based on what's given in the cart. |
-| [adservice](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/adservice) | Java | Provides text ads based on given context words. |
-| [loadgenerator](https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/loadgenerator) | Python/Locust | Continuously sends requests imitating realistic user shopping flows to the frontend. |
+| [frontend](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/frontend) | Go | Exposes an HTTP server to serve the website. Does not require signup/login and generates session IDs for all users automatically. |
+| [cartservice](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/cartservice) | C# | Stores the items in the user's shopping cart in Redis and retrieves it. |
+| [productcatalogservice](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/productcatalogservice) | Go | Provides the list of products from a JSON file and ability to search products and get individual products. |
+| [currencyservice](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/currencyservice) | Node.js | Converts one money amount to another currency. Uses real values fetched from European Central Bank. It's the highest QPS service. |
+| [paymentservice](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/paymentservice) | Node.js | Charges the given credit card info (mock) with the given amount and returns a transaction ID. |
+| [shippingservice](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/shippingservice) | Go | Gives shipping cost estimates based on the shopping cart. Ships items to the given address (mock) |
+| [emailservice](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/emailservice) | Python | Sends users an order confirmation email (mock). |
+| [checkoutservice](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/checkoutservice) | Go | Retrieves user cart, prepares order and orchestrates the payment, shipping and the email notification. |
+| [recommendationservice](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/recommendationservice) | Python | Recommends other products based on what's given in the cart. |
+| [adservice](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/adservice) | Java | Provides text ads based on given context words. |
+| [loadgenerator](https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo/blob/main/src/loadgenerator) | Python/Locust | Continuously sends requests imitating realistic user shopping flows to the frontend. |
 
 Screenshots:
 
@@ -269,7 +269,7 @@ There is **NO dedicated “orders database”**.
 ---
 
 > “The demo intentionally keeps most services stateless to simplify deployment and focus on platform concerns like CI/CD, observability, scaling, and networking.”
-> 
+>
 
 ---
 
@@ -293,7 +293,7 @@ There is **NO dedicated “orders database”**.
 Clone the repo:
 
 ```bash
-https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo.git
+https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo.git
 ```
 
 chnage directory to terraform:
@@ -308,7 +308,7 @@ Clone te repo , `cd` to `terraform` directory. Do
 
 ```bash
 terraform init
-Terraform plan 
+Terraform plan
 ```
 
 Verify the resources and then do
@@ -378,7 +378,7 @@ Do you want to copy existing state to the new backend?
   configured "s3" backend. Do you want to copy this state to the new "s3"
   backend? Enter "yes" to copy and "no" to start with an empty state.
 
-  Enter a value: 
+  Enter a value:
 ```
 
 Type “Yes”, The backend will move to s3.
@@ -412,7 +412,7 @@ Do `aws configure` and set up with the access and secret access keys , You can u
 Then, import the kubeconfig file by putting the below command.
 
 ```bash
-aws eks update-kubeconfig --region <your-region> --name <your-cluster-name> 
+aws eks update-kubeconfig --region <your-region> --name <your-cluster-name>
 ```
 
 After added the context check:
@@ -448,21 +448,21 @@ eksctl utils associate-iam-oidc-provider \
 **Create IAM role using `eksctl`.**
 
 1. Download an IAM policy for the AWS Load Balancer Controller that allows it to make calls to AWS APIs on your behalf.
-    
+
     ```bash
     curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.14.1/docs/install/iam_policy.json
     ```
-    
+
 2. Create an IAM policy using the policy downloaded in the previous step.
-    
+
     ```bash
     aws iam create-policy \
         --policy-name AWSLoadBalancerControllerIAMPolicy \
         --policy-document file://iam_policy.json
     ```
-    
+
 3. Replace the values for cluster name, region code, and account ID.
-    
+
     ```bash
     eksctl create iamserviceaccount \
         --cluster=<cluster-name> \
@@ -473,28 +473,28 @@ eksctl utils associate-iam-oidc-provider \
         --region <aws-region-code> \
         --approve
     ```
-    
+
 
 **Install AWS Load Balancer Controller**
 
 1. Add the `eks-charts` Helm chart repository. AWS maintains [this repository](https://github.com/aws/eks-charts) on GitHub.
-    
+
     ```bash
     helm repo add eks https://aws.github.io/eks-charts
     ```
-    
+
 2. Update your local repo to make sure that you have the most recent charts.
-    
+
     ```bash
     helm repo update eks
     ```
-    
+
 3. Install the AWS Load Balancer Controller.
     - `-set region=region-code`
     - `-set vpcId=vpc-xxxxxxxx`
-        
+
         Replace `*my-cluster*` with the name of your cluster. In the following command, `aws-load-balancer-controller` is the Kubernetes service account that you created in a previous step.
-        
+
         ```bash
         helm upgrade -i aws-load-balancer-controller eks/aws-load-balancer-controller \
           -n kube-system \
@@ -507,23 +507,23 @@ eksctl utils associate-iam-oidc-provider \
           --set controllerConfig.featureGates.ALBGatewayAPI=true \
           --version 3.0.0
         ```
-        
+
 
 **Verify that the controller is installed**
 
 1. Verify that the controller is installed.
-    
+
     ```bash
     kubectl get deployment -n kube-system aws-load-balancer-controller
     ```
-    
+
     An example output is as follows.
-    
+
     ```bash
     NAME                           READY   UP-TO-DATE   AVAILABLE   AGE
     aws-load-balancer-controller   2/2     2            2           84s
     ```
-    
+
 
 ## Gateway API
 
@@ -532,23 +532,23 @@ Docs: [https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/gui
 Installation of Gateway API CRDs
 
 - Standard Gateway API CRDs:  [REQUIRED]
-    
+
     ```bash
     kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.3.0/standard-install.yaml
     ```
-    
+
 - Experimental Gateway API CRDs:  [OPTIONAL: Used for L4 Routes]
-    
+
     ```bash
     kubectl apply -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.3.0/experimental-install.yaml
     ```
-    
+
 - Installation of LBC Gateway API specific CRDs:
-    
+
     ```bash
     kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/refs/heads/main/config/crd/gateway/gateway-crds.yaml
     ```
-    
+
 
 > [!NOTE]
 >
@@ -652,7 +652,7 @@ app-alb-gateway   aws-alb-gateway-class   k8s-default-appalbga-65aa25bc91-183881
 
 ## **Deploying External DNS:**
 
-Docs: 
+Docs:
 
 - [https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#using-helm-with-oidc](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#using-helm-with-oidc)
 - [https://kubernetes-sigs.github.io/external-dns/v0.13.1/tutorials/gateway-api/#manifest-with-rbac](https://kubernetes-sigs.github.io/external-dns/v0.13.1/tutorials/gateway-api/#manifest-with-rbac) (How to setup with GatewayAPI)
@@ -697,7 +697,7 @@ aws iam create-policy --policy-name "AllowExternalDNSUpdates" --policy-document 
 # example: arn:aws:iam::XXXXXXXXXXXX:policy/AllowExternalDNSUpdates
 export POLICY_ARN=$(aws iam list-policies \
  --query 'Policies[?PolicyName==`AllowExternalDNSUpdates`].Arn' --output text)
- 
+
 export EKS_CLUSTER_NAME=test-terraform-cluster
 ```
 
@@ -791,7 +791,7 @@ helm upgrade -i external-dns external-dns/external-dns -f external-dns-values-1.
 
 ## Deploy ArgoCD
 
-Docs: [https://artifacthub.io/packages/helm/argo/argo-cd](https://artifacthub.io/packages/helm/argo/argo-cd) 
+Docs: [https://artifacthub.io/packages/helm/argo/argo-cd](https://artifacthub.io/packages/helm/argo/argo-cd)
 
 **Add ArgoCD repo**
 
@@ -889,7 +889,7 @@ spec:
 Apply:
 
 ```bash
-kubectl apply -f target-grp-config.yaml 
+kubectl apply -f target-grp-config.yaml
 ```
 
 
@@ -925,7 +925,7 @@ kubectl apply -f target-grp-config.yaml
 >So AWS had to invent a CRD to answer:
 >
 >> “How should I register targets for this Service?”
->> 
+>>
 >
 >That CRD is:
 >
@@ -965,7 +965,7 @@ kubectl apply -f target-grp-config.yaml
 >From AWS docs (paraphrased):
 >
 >> Gateway API requires explicit target group configuration for deterministic behavior.
->> 
+>>
 >
 >That’s why your Gateway worked *only after* adding `TargetGroupConfiguration`.
 >
@@ -974,7 +974,7 @@ kubectl apply -f target-grp-config.yaml
 >## Mental model to keep forever
 >
 >> If traffic goes directly from AWS ELB → Kubernetes pods, you need TargetGroupConfiguration.
->> 
+>>
 >- AWS ELB → Pod IPs → ✅ required
 >- Pod → Pod (proxy) → ❌ not required
 >
@@ -1013,7 +1013,7 @@ user:admin
 
 You can change the auto generated password.
 
-Login → User info → Update Password 
+Login → User info → Update Password
 
 ```bash
 Argocd@xxx #Demo password
@@ -1038,7 +1038,7 @@ When you gave **Write access** under:
 You allowed:
 
 > “This repository is allowed to push/pull this package.”
-> 
+>
 
 Think of it as:
 
@@ -1152,7 +1152,7 @@ jobs:
 >- If ANY HIGH or CRITICAL vulnerability is found → **fail the pipeline immediately.**
 >- This is actually **best practice for financial / security-heavy companies.**
 
-> [!NOTE] 
+> [!NOTE]
 >You will get the scan report whether its set to 0 or 1.
 
 
@@ -1242,7 +1242,7 @@ Check the build success message.
 
 # Now Lets Move to the CD part.
 
-In the earlier step we have installed and exposed the argocd. 
+In the earlier step we have installed and exposed the argocd.
 
 Our application code , helm chart and Helm values are already in the repo.
 
@@ -1251,9 +1251,9 @@ Additionally to expose our application via Gateway API we need `httproute` and `
 In our case i kept in `microservices-extra-kube-manifests/` folder in the root directory.
 
 - **Create target group configurations for the app `frontend` service.**
-    
+
     `microservices-extra-kube-manifests/target-grp.yaml`
-    
+
     ```bash
     #target group configuration
     apiVersion: gateway.k8s.aws/v1beta1
@@ -1267,12 +1267,12 @@ In our case i kept in `microservices-extra-kube-manifests/` folder in the root d
       defaultConfiguration:
         targetType: ip
     ```
-  
-    
+
+
 - **Create the HTTProute for the app so that it will get attached with the gateway and add as a listener in the load balancer.**
-    
-    `microservices-extra-kube-manifests/HTTProute.yaml` 
-    
+
+    `microservices-extra-kube-manifests/HTTProute.yaml`
+
     ```bash
     apiVersion: gateway.networking.k8s.io/v1beta1
     kind: HTTPRoute
@@ -1298,7 +1298,7 @@ In our case i kept in `microservices-extra-kube-manifests/` folder in the root d
         - name: frontend
           port: 80
     ```
-    
+
 - ArgoCD can deploy **multiple sources from one repo** inside a single Application using `Kustomize`.
 - Kustomize render it as a single manifest file.
 
@@ -1354,7 +1354,7 @@ resources:
 
 helmCharts:
   - name: boutique-app
-    repo: oci://ghcr.io/laxmikantagiri/onlineboutique
+    repo: oci://ghcr.io/eltcarlos/onlineboutique
     version: 0.10.4
     releaseName: boutique-app
     namespace: boutique-app
@@ -1392,7 +1392,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/laxmikantagiri/Production-Grade_GitOps-Driven_Microservices-Demo.git
+    repoURL: https://github.com/eltcarlos/Production-Grade_GitOps-Driven_Microservices-Demo.git
     targetRevision: HEAD
     path: .
 
@@ -1428,7 +1428,7 @@ So whenever CI part is done and the image is pushed to the registry the same ima
 #currently using the the older version of the image "v0.10.4"
 kubectl describe po frontend-7dd5db5f5-xb7g8 -n boutique-app | grep "image"
 
-Normal  Pulled     51m   kubelet            spec.containers{server}: Container image "ghcr.io/laxmikantagiri/microservices-demo/frontend:v0.10.4" already present on machine
+Normal  Pulled     51m   kubelet            spec.containers{server}: Container image "ghcr.io/eltcarlos/microservices-demo/frontend:v0.10.4" already present on machine
 ```
 
 ## Install Argo Image Updater.
@@ -1498,14 +1498,14 @@ helm repo add argo https://argoproj.github.io/argo-helm
 As discussed argocd-image-updater needs permission to your github repo so that it can create update to the value files or push/pull new changes . **(Optional In this Case , Do this if its a private repo)**
 
 - You can use the same PAT which you used for CI, or else create a classic token with the below permission.
-    
+
     ```bash
     read:packages
     write:pacakges
     ```
-    
+
     Then, create a secret and store the PAT and user name.
-    
+
     ```bash
     kubectl create secret docker-registry ghcr-secret \
       --docker-server=ghcr.io \
@@ -1513,17 +1513,17 @@ As discussed argocd-image-updater needs permission to your github repo so that i
       --docker-password=YOUR_GITHUB_PAT \
       -n argocd
     ```
-    
+
     Configure ArgoCD to Use That Secret
-    
+
     ```bash
     helm show values argo/argocd-image-updater --version 1.0.5 > argo-image-updater-values-1.0.5.yaml
     ```
-    
+
     Add the below configs in the `registries` section
-    
+
     `vi argo-image-updater-values-1.0.5.yaml`
-    
+
     ```bash
     registries:
         - name: ghcr
@@ -1531,7 +1531,7 @@ As discussed argocd-image-updater needs permission to your github repo so that i
           prefix: ghcr.io
           credentials: pullsecret:argocd/ghcr-secret
     ```
-    
+
 
 Install the chart:
 
@@ -1586,37 +1586,37 @@ spec:
 
       images:
         - alias: adservice
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/adservice
+          imageName: ghcr.io/eltcarlos/microservices-demo/adservice
 
         - alias: cartservice
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/cartservice
+          imageName: ghcr.io/eltcarlos/microservices-demo/cartservice
 
         - alias: checkoutservice
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/checkoutservice
+          imageName: ghcr.io/eltcarlos/microservices-demo/checkoutservice
 
         - alias: currencyservice
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/currencyservice
+          imageName: ghcr.io/eltcarlos/microservices-demo/currencyservice
 
         - alias: emailservice
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/emailservice
+          imageName: ghcr.io/eltcarlos/microservices-demo/emailservice
 
         - alias: frontend
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/frontend
+          imageName: ghcr.io/eltcarlos/microservices-demo/frontend
 
         - alias: paymentservice
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/paymentservice
+          imageName: ghcr.io/eltcarlos/microservices-demo/paymentservice
 
         - alias: productcatalogservice
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/productcatalogservice
+          imageName: ghcr.io/eltcarlos/microservices-demo/productcatalogservice
 
         - alias: recommendationservice
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/recommendationservice
+          imageName: ghcr.io/eltcarlos/microservices-demo/recommendationservice
 
         - alias: shippingservice
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/shippingservice
+          imageName: ghcr.io/eltcarlos/microservices-demo/shippingservice
 
         - alias: loadgenerator
-          imageName: ghcr.io/laxmikantagiri/microservices-demo/loadgenerator
+          imageName: ghcr.io/eltcarlos/microservices-demo/loadgenerator
 ```
 
 Apply it:
@@ -1682,7 +1682,7 @@ Keep it public.
 
 ![image.png](docs/images/image%2010.png)
 
-After this is done 
+After this is done
 
 Go to [https://api.slack.com/apps](https://api.slack.com/apps) again.
 
@@ -1750,7 +1750,7 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 get the helm values and save it in a file:
 
 ```bash
-helm show values prometheus-community/kube-prometheus-stack --version 81.6.3 > observability/helm-values/kube-prom-stack-81.6.3.yaml 
+helm show values prometheus-community/kube-prometheus-stack --version 81.6.3 > observability/helm-values/kube-prom-stack-81.6.3.yaml
 ```
 
 Edit in `vi`
@@ -2038,7 +2038,7 @@ config:
 >severity="critical"
 >```
 >
->Matches your route → sends to Slack 
+>Matches your route → sends to Slack
 >
 >---
 >
@@ -2150,7 +2150,7 @@ metadata:
   namespace: monitoring
 spec:
   targetReference:
-    name: kube-prometheus-stack-grafana 
+    name: kube-prometheus-stack-grafana
   defaultConfiguration:
     targetType: ip
 
@@ -2231,7 +2231,7 @@ metadata:
   namespace: monitoring
 spec:
   targetReference:
-    name: kube-prometheus-stack-prometheus 
+    name: kube-prometheus-stack-prometheus
   defaultConfiguration:
     targetType: ip
 ```
@@ -2309,7 +2309,7 @@ eksctl create iamserviceaccount \
    --override-existing-serviceaccounts \
    --approve
 ```
-Make sure EBS csi driver is added. 
+Make sure EBS csi driver is added.
 Take the role name from the cloudformation template output.
 ```
 eksctl create addon --cluster terraform-cluster --name aws-ebs-csi-driver --version latest \
@@ -2344,7 +2344,7 @@ helm install eck-operator elastic/eck-operator --version 3.3.0 -n logging
 
 Create a storageclass so that elastic search can dynamically provision volume in AWS.
 
- **vi `observability/storageclass.yaml`** 
+ **vi `observability/storageclass.yaml`**
 
 ```
 apiVersion: storage.k8s.io/v1
@@ -2361,7 +2361,7 @@ volumeBindingMode: WaitForFirstConsumer
 apply the yaml file.
 
 ```bash
-kubectl apply -f observability/storageclass.yaml 
+kubectl apply -f observability/storageclass.yaml
 ```
 
 See the storage class, you should see 2 storage classes
@@ -2370,10 +2370,10 @@ one is default another one we just have created and set to default.
 
 ```bash
 kubectl  get storageclass
- 
+
 NAME                PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 ebs-aws (default)   ebs.csi.aws.com         Delete          WaitForFirstConsumer   false                  6s
-gp2                 kubernetes.io/aws-ebs   Delete          WaitForFirstConsumer   false 
+gp2                 kubernetes.io/aws-ebs   Delete          WaitForFirstConsumer   false
 ```
 
 ### Now Lets install the ECK- Components which the operator will manage:
@@ -2482,7 +2482,7 @@ daemonSet:
           - mountPath: /var/log/pods
             name: varlogpods
           - mountPath: /var/lib/docker/containers
-            name: varlibdockercontainers  
+            name: varlibdockercontainers
       volumes:
         - name: varlogcontainers
           hostPath:
@@ -2635,7 +2635,7 @@ Install:
 helm install eck-kibana elastic/eck-kibana --version 0.18.0 -f observability/helm-values/eck-kibana-0.18.0.yaml -n logging
 ```
 
-It takes some time to run the pod and the CR, After 2-3 minutes check 
+It takes some time to run the pod and the CR, After 2-3 minutes check
 
 ```bash
 kubectl get kibana -n logging
@@ -2717,7 +2717,7 @@ metadata:
   namespace: logging
 spec:
   targetReference:
-    name: eck-kibana-kb-http 
+    name: eck-kibana-kb-http
   defaultConfiguration:
     targetType: ip
     protocol: HTTPS
@@ -2766,7 +2766,7 @@ Go to discover section:
 
 In search field section search for “`namespace`” and the select `kubernetes.namespace`
 
-Click on that and select your app namepsace 
+Click on that and select your app namepsace
 
 ![image.png](docs/images/image%2030.png)
 
@@ -2855,25 +2855,25 @@ Confirm that metric server is working by running:
 ```bash
 kubectl top nodes
 
-NAME                         CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
-ip-10-0-1-64.ec2.internal    90m          4%       2150Mi          68%         
-ip-10-0-2-253.ec2.internal   44m          2%       2576Mi          82%         
-ip-10-0-3-56.ec2.internal    116m         6%       2322Mi          73% 
+NAME                         CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)
+ip-10-0-1-64.ec2.internal    90m          4%       2150Mi          68%
+ip-10-0-2-253.ec2.internal   44m          2%       2576Mi          82%
+ip-10-0-3-56.ec2.internal    116m         6%       2322Mi          73%
 
 kubectl top pods -n boutique-app
 
-NAME                                     CPU(cores)   MEMORY(bytes)   
-adservice-68f9bcd546-qt5pw               2m           101Mi           
-cartservice-6b848f4d6b-86gns             3m           71Mi            
-checkoutservice-d76f9996b-7fzzt          1m           10Mi            
-currencyservice-5d47fbbcbd-q4fsl         5m           37Mi            
-emailservice-fffd8bb8c-jfnsq             2m           39Mi            
-frontend-57c5fdc47c-v2hls                8m           14Mi            
-loadgenerator-7f56fdb774-bcl4s           3m           76Mi            
-paymentservice-75c7596665-jnz8h          1m           126Mi           
-productcatalogservice-78f985f9cd-fg2ls   4m           9Mi             
-recommendationservice-6685dcbd7d-xwlsz   4m           41Mi            
-redis-cart-8649b96fbb-vw2bw              2m           6Mi             
+NAME                                     CPU(cores)   MEMORY(bytes)
+adservice-68f9bcd546-qt5pw               2m           101Mi
+cartservice-6b848f4d6b-86gns             3m           71Mi
+checkoutservice-d76f9996b-7fzzt          1m           10Mi
+currencyservice-5d47fbbcbd-q4fsl         5m           37Mi
+emailservice-fffd8bb8c-jfnsq             2m           39Mi
+frontend-57c5fdc47c-v2hls                8m           14Mi
+loadgenerator-7f56fdb774-bcl4s           3m           76Mi
+paymentservice-75c7596665-jnz8h          1m           126Mi
+productcatalogservice-78f985f9cd-fg2ls   4m           9Mi
+recommendationservice-6685dcbd7d-xwlsz   4m           41Mi
+redis-cart-8649b96fbb-vw2bw              2m           6Mi
 shippingservice-586996844-jncl4          1m           9Mi
 ```
 
@@ -3184,13 +3184,13 @@ echo <TOKEN> | docker login ghcr.io \
 Tag/Retag your image:
 
 ```bash
-docker tag us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.4 ghcr.io/laxmikantagiri/microservices-demo/adservice:v0.10.4
+docker tag us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.4 ghcr.io/eltcarlos/microservices-demo/adservice:v0.10.4
 ```
 
 Push the image:
 
 ```bash
-  docker push ghcr.io/laxmikantagiri/microservices-demo/adservice:v0.10.4 
+  docker push ghcr.io/eltcarlos/microservices-demo/adservice:v0.10.4
 ```
 </details>
 
@@ -3274,7 +3274,7 @@ Chart.yaml  README.md  onlineboutique-0.10.4.tgz  templates  values.yaml
 Push to the repository:
 
 ```bash
-helm push onlineboutique-0.10.4.tgz oci://ghcr.io/laxmikantagiri
+helm push onlineboutique-0.10.4.tgz oci://ghcr.io/eltcarlos
 ```
 
 Now you can directly install the package using the below command
@@ -3282,7 +3282,7 @@ Now you can directly install the package using the below command
 (Make sure its public)
 
 ```bash
-helm install boutique oci://ghcr.io/laxmikantagiri/onlineboutique --version 0.10.4
+helm install boutique oci://ghcr.io/eltcarlos/onlineboutique --version 0.10.4
 ```
 </details>
 
