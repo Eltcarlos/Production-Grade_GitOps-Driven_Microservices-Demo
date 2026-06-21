@@ -1,5 +1,5 @@
 ---
-# Default values for eck-beats.
+# Default values for eck-beats..
 # This is a YAML-formatted file.
 
 # Overridable names of the Beats resource.
@@ -118,7 +118,7 @@ daemonSet:
           - mountPath: /var/log/pods
             name: varlogpods
           - mountPath: /var/lib/docker/containers
-            name: varlibdockercontainers  
+            name: varlibdockercontainers
       volumes:
         - name: varlogcontainers
           hostPath:
