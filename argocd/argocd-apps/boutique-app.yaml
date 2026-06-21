@@ -12,7 +12,7 @@ spec:
     path: .
 
   destination:
-    server: https://kubernetes.default.svc. # This is the in-cluster API server URL.
+    server: https://kubernetes.default.svc # This is the in-cluster API server URL.
     namespace: boutique-app
 
   syncPolicy:
