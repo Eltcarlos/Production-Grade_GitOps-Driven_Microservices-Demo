@@ -2313,7 +2313,7 @@ Make sure EBS csi driver is added.
 Take the role name from the cloudformation template output.
 ```
 eksctl create addon --cluster terraform-cluster --name aws-ebs-csi-driver --version latest \
-    --service-account-role-arn arn:aws:iam::224075521056:role/eksctl-terraform-cluster-addon-iamserviceacco-Role1-AXN8WDL6k09R --force
+    --service-account-role-arn arn:aws:iam::211125393716:role/eksctl-terraform-cluster-addon-iamserviceacco-Role1-tvOdN90wdYnl --force
 ```
 make sure all the pods are running:
 
